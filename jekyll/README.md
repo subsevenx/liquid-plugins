@@ -28,7 +28,9 @@ tags:
 Not every tag is implemented but it includes most use cases:
 
 ```yml
-image: #this can be used as an alternative to the og.image. you don't need both.
+image: #You can either set these values here, or in the OpenGraph section. You don't need to set both.
+author:
+tags:
 seo:
   meta:
     robots: #check mdn for values: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name 
