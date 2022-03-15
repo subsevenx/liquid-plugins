@@ -1,0 +1,27 @@
+### Global SEO Settings, goes in your _data folder. ### 
+### This information will be used as a fallback for all pages in your site if you do not set it on a per page basis.
+### Traditionally most of this info in Jekyll has been handled in the _config file.
+### However, in a practical sense, it's better to separate it out to its own file. 
+### Doing it this way means you don't need to restart your server to see changes.
+
+### Reference this file as site.data.metadata.{prop}
+title: "Your Site Title Here"
+tagline: "Your Tagline"
+separator: " &#xbb; " # HTML characters need to be wrapped in quotation marks. You need to add spaces here. 
+separator2: ": "
+description: "Your site description. Sweet spot should be between 50-80 characters."
+keywords: "keyword, keyword2, keyword3" # Not relevant in modern SEO. But still included.
+image: # use full path. Will be used as fallback for social share if one isn't specified.
+author: "Your Name"
+language: "English"
+email: "info@example.com"
+
+## Optional SEO Settings ##
+
+og_locale: "en_US"
+twitter_card: false #True to enable social card
+twitter_username: "@example"
+
+### Indexing Settings ###
+robots: "index, follow"
+revisit: "7 days"
