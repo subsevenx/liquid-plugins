@@ -7,7 +7,7 @@
 ### Reference this file as site.data.metadata.{prop}
 title: "Your Site Title Here"
 tagline: "Your Tagline"
-separator: " &#xbb; " # HTML characters need to be wrapped in quotation marks. You need to add spaces here. 
+separator: " &#xbb; " # Special characters need to be wrapped in quotation marks. You need to add spaces here. 
 separator2: ": "
 description: "Your site description. Sweet spot should be between 50-80 characters."
 keywords: "keyword, keyword2, keyword3" # Not relevant in modern SEO. But still included.
@@ -15,6 +15,7 @@ image: # use full path. Will be used as fallback for social share if one isn't s
 author: "Your Name"
 language: "English"
 email: "info@example.com"
+meta_theme_color: "#333" #Hex code
 
 ## Optional SEO Settings ##
 

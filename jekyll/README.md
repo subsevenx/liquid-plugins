@@ -25,4 +25,22 @@ tags:
   - jamstack
   - static sites
 ```
-Not every tag is implemented but it includes most use cases.
+Not every tag is implemented but it includes most use cases:
+
+```yml
+image: #this can be used as an alternative to the og.image. you don't need both.
+seo:
+  meta:
+    robots: #check mdn for values: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name 
+    revisit:
+    author:
+    keywords: #not really used by search engines anymore, but included if you still want 
+    #to fill it out. If it's' null in the data file and on the page, the tag won't be rendered.
+  og: #https://ogp.me// for values
+    title:
+    description:
+    type:
+    image: 
+    locale:
+    site_name:
+```

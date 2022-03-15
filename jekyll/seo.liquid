@@ -46,10 +46,9 @@ This plugin relies on two things:
 {%- endcapture -%}
 
 {%- capture meta_keywords -%}
-    {%- if page.tags -%}
-        {{- page.tags | sort | join: ", " -}}
-    {% else %}
-        {{- metadata.keywords -}}
+    {%- if page.tags -%} {{- page.tags | sort | join: ", " -}}
+    {%- elsif mt.keywords -%} {{- mt.keywords -}} 
+    {%- else -%} {{- metadata.keywords -}}
     {%- endif -%}
 {%- endcapture -%}
 
@@ -139,7 +138,7 @@ to provide it. Cuts build time and confusion.
     {%- if og.locale -%}
         {{- og.locale -}}
     {%- else -%}
-        {{- site.og_locale | default: "en_US" -}}
+        {{- metadata.og_locale | default: "en_US" -}}
     {%- endif -%}
 {%- endcapture -%}
 
