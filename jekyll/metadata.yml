@@ -19,7 +19,7 @@ email: "info@example.com"
 ## Optional SEO Settings ##
 
 og_locale: "en_US"
-twitter_card: false #True to enable social card
+twitter_card: false #True to enable social card for twitter.
 twitter_username: "@example"
 
 ### Indexing Settings ###
