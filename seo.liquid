@@ -1,0 +1,82 @@
+{%- assign metadata = site.metadata -%}
+{%- assign og = resource.data.seo.og -%}
+{%- assign meta = resource.data.seo.meta -%}
+
+{%- capture full_site_title -%}
+    {{- resource.title -}}{{- metadata.separator | default: " - " -}}{{- metadata.title -}}{{- metadata.separator2 | default: ": " -}}{{- metadata.tagline | default: "" -}}
+{%- endcapture -%}
+
+{%- capture meta_robots -%}
+    {{- meta.robots | default: metadata.robots -}}
+{%- endcapture -%}
+
+{%- capture meta_revisit_after -%}
+    {{- meta.revisit | default: metadata.revisit -}}
+{%- endcapture -%}
+
+{%- capture meta_theme_color -%}
+    {{- metadata.meta_theme_color | default: "#FFF" -}}
+{%- endcapture -%}
+
+{%- capture meta_author -%}
+    {{- meta.author | default: resource.author | default: metadata.author -}}
+{%- endcapture -%}
+
+{%- capture meta_language -%}
+    {{- meta.language | default: resource.language | default: metadata.language -}}
+{%- endcapture -%}
+
+{%- capture social_site_title -%}
+    {{- og.title | default: full_site_title -}}
+{%- endcapture -%}
+
+{%- capture social_description -%}
+    {{- og.description | default: resource.data.excerpt | default: metadata.description -}}
+{%- endcapture -%}
+
+{%- if og.type -%}
+    {%- capture social_content_type -%}{{ og.type }}{%- endcapture -%}
+{%- else -%}
+    {%- if resource.collection.name == 'posts' -%}
+        {%- capture social_content_type -%}article{%- endcapture -%}
+    {%- else -%}
+        {%- capture social_content_type -%}website{%- endcapture -%}
+    {%- endif -%}
+{%- endif -%}
+
+{%- capture social_url -%}
+    {{- site.url -}}{{- resource.relative_url -}}
+{%- endcapture -%}
+
+{%- capture social_image -%}
+    {{- og.image | default: resource.data.image | default: metadata.global_image -}}
+{%- endcapture -%}
+
+{%- capture social_site_name -%}
+    {{- og.site_name | default: metadata.title -}}
+{%- endcapture -%}
+
+{%- capture social_locale -%}
+    {{- og.locale | default: metadata.og_locale | default: "en_US" -}}
+{%- endcapture -%}
+
+<!-- Begin Liquid SEO -->
+<title>{{ full_site_title }}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="{{ meta_theme_color }}">
+<meta name="revisit-after" content="{{ meta_revisit_after }}">
+<meta name="robots" content="{{ meta_robots }}, max-image-preview:large">
+<meta name="title" content="{{ social_site_title }}">    
+<meta name="description" content="{{ social_description }}">
+<meta name="author" content="{{ meta_author }}">
+<meta name="language" content="{{ meta_language }}">
+<meta property="og:title" content="{{ social_site_title }}">
+<meta property="og:description" content="{{ social_description }}">
+<meta property="og:type" content="{{ social_content_type }}">
+<meta property="og:url" content="{{ social_url }}">
+<meta property="og:image" content="{{ social_url }}{{ social_image }}">
+<meta property="og:site_name" content="{{ social_site_name }}">
+<meta property="og:locale" content="{{ social_locale }}">
+<link rel="canonical" href="{{ social_url }}">
+<!-- End Liquid SEO -->
