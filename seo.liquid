@@ -3,7 +3,7 @@ Pass in your metadata object on the render.
 
 metadata: site.metadata
 {% endcomment %}
-%- assign og = resource.data.seo.og -%}
+{%- assign og = resource.data.seo.og -%}
 {%- assign meta = resource.data.seo.meta -%}
 
 {%- capture full_site_title -%}
