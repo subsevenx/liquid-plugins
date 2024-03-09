@@ -1,9 +1,13 @@
-{%- assign metadata = site.metadata -%}
-{%- assign og = resource.data.seo.og -%}
+{% comment %}
+Pass in your metadata object on the render.
+
+metadata: site.metadata
+{% endcomment %}
+%- assign og = resource.data.seo.og -%}
 {%- assign meta = resource.data.seo.meta -%}
 
 {%- capture full_site_title -%}
-    {{- resource.title -}}{{- metadata.separator | default: " - " -}}{{- metadata.title -}}{{- metadata.separator2 | default: ": " -}}{{- metadata.tagline | default: "" -}}
+    {{- resource.title -}}{{- metadata.separator | default: " - " -}}{{- metadata.title -}}
 {%- endcapture -%}
 
 {%- capture meta_robots -%}
@@ -44,8 +48,8 @@
     {%- endif -%}
 {%- endif -%}
 
-{%- capture social_url -%}
-    {{- resource.absolute_url -}}
+{%- capture full_url -%}
+	{{- resource.url |  absolute_url |  remove_last: '/' -}}
 {%- endcapture -%}
 
 {%- capture social_image -%}
@@ -73,9 +77,9 @@
 <meta property="og:title" content="{{ social_site_title | escape}}">
 <meta property="og:description" content="{{ social_description | escape}}">
 <meta property="og:type" content="{{ social_content_type | escape}}">
-<meta property="og:url" content="{{ social_url }}">
-<meta property="og:image" content="{{ social_url }}{{ social_image }}">
+<meta property="og:url" content="{{ full_url }}">
+<meta property="og:image" content="{{ full_url }}{{ social_image }}">
 <meta property="og:site_name" content="{{ social_site_name | escape}}">
 <meta property="og:locale" content="{{ social_locale | escape}}">
-<link rel="canonical" href="{{ social_url }}">
+<link rel="canonical" href="{{ full_url }}">
 <!-- End Liquid SEO -->
